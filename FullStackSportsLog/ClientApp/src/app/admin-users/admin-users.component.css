@@ -1,0 +1,14 @@
+@import url("//fonts.googleapis.com/css?family=Oswald");
+h2 {
+    font-family: Oswald;
+}
+
+#adminTable {
+    background-color: #0E103D;
+    color: white;
+}
+
+#custRow,td {
+    background-color: white;
+    color: black;
+}
