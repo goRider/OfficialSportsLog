@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FullStackSportsLog.Data;
+using FullStackSportsLog.Models;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -11,11 +13,19 @@ namespace FullStackSportsLog.Controllers
     [Route("api/[controller]")]
     public class AdminUserController : Controller
     {
+        private readonly SportsContext _sportsContext;
+
+        public AdminUserController(SportsContext sportsContext)
+        {
+            _sportsContext = sportsContext;
+        }
+
         // GET: api/<controller>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public ActionResult<List<AdminUser>> Get()
         {
-            return new string[] { "value1", "value2" };
+            var admins = _sportsContext.AdminUsers.ToList();
+            return admins;
         }
 
         // GET api/<controller>/5
